@@ -7,16 +7,19 @@
     tools:context=".IndicatePriceInterval">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/indicatePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="25sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
-        android:id="@+id/rangeSeekbar1"
+        android:id="@+id/rangePriceSeekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,16 +48,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintStart_toStartOf="@+id/rangeSeekbar1"
-        app:layout_constraintTop_toBottomOf="@+id/rangeSeekbar1" />
+        app:layout_constraintStart_toStartOf="@+id/rangePriceSeekbar"
+        app:layout_constraintTop_toBottomOf="@+id/rangePriceSeekbar" />
 
     <TextView
         android:id="@+id/textMax1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/rangeSeekbar1"
-        app:layout_constraintTop_toBottomOf="@+id/rangeSeekbar1" />
+        app:layout_constraintEnd_toEndOf="@+id/rangePriceSeekbar"
+        app:layout_constraintTop_toBottomOf="@+id/rangePriceSeekbar" />
 
     <Button
         android:id="@+id/button2"
@@ -69,11 +72,11 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/hiddenCuisinePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="invisible"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="489dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

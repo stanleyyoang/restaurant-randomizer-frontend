@@ -12,8 +12,6 @@ import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
 import com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar;
 
-import org.w3c.dom.Text;
-
 public class IndicatePriceInterval extends AppCompatActivity {
     public static final String CUISINE_SELECTED = "com.example.restaurantrandomizer.MESSAGE";
     public static final String MIN_PRICE = "com.example.restaurantrandomizer.MINPRICE";
@@ -26,14 +24,14 @@ public class IndicatePriceInterval extends AppCompatActivity {
 
         Intent intent = getIntent();
         String cuisineSelected = intent.getStringExtra(MainActivity.CUISINE_SELECTED);
-        TextView textView5 = findViewById(R.id.textView5);
-        textView5.setText(cuisineSelected);
+        TextView hiddenCuisine = findViewById(R.id.hiddenCuisinePrice);
+        hiddenCuisine.setText(cuisineSelected);
 
-        TextView textView = findViewById(R.id.textView);
-        textView.setText(R.string.indicate_price_interval);
+        TextView indicatePrice = findViewById(R.id.indicatePrice);
+        indicatePrice.setText(R.string.indicate_price_interval);
 
         // get seekbar from view
-        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.rangeSeekbar1);
+        final CrystalRangeSeekbar rangeSeekbar = (CrystalRangeSeekbar) findViewById(R.id.rangePriceSeekbar);
 
         // get min and max text view
         final TextView tvMin = (TextView) findViewById(R.id.textMin1);
@@ -61,8 +59,8 @@ public class IndicatePriceInterval extends AppCompatActivity {
         Intent intent = new Intent(this, IndicateRadiusInterval.class);
         Bundle extras = new Bundle();
 
-        TextView textView = (TextView) findViewById(R.id.textView5);
-        String cuisine = textView.getText().toString();
+        TextView hiddenCuisine = (TextView) findViewById(R.id.hiddenCuisinePrice);
+        String cuisine = hiddenCuisine.getText().toString();
 
         TextView tvMinPrice = (TextView) findViewById(R.id.textMin1);
         String minPrice = tvMinPrice.getText().toString();
@@ -72,7 +70,7 @@ public class IndicatePriceInterval extends AppCompatActivity {
 
         extras.putString(CUISINE_SELECTED, cuisine);
         extras.putString(MIN_PRICE, minPrice);
-        extras.putString(MAX_PRICE,maxPrice);
+        extras.putString(MAX_PRICE, maxPrice);
         intent.putExtras(extras);
 
         startActivity(intent);

@@ -9,20 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".IndicateRadiusInterval"
-            android:parentActivityName=".IndicatePriceInterval">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".IndicatePriceInterval" />
-        </activity>
-        <activity
-            android:name=".IndicatePriceInterval"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
-        </activity>
+        <activity android:name=".SearchRestaurant"></activity>
+        <activity android:name=".IndicateRatingInterval" />
+        <activity android:name=".IndicateRadiusInterval" />
+        <activity android:name=".IndicatePriceInterval" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
