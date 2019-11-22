@@ -32,8 +32,8 @@ public class SearchRestaurant extends AppCompatActivity {
         String minPrice = extras.getString(IndicateRatingInterval.MIN_PRICE);
         String maxPrice = extras.getString(IndicateRatingInterval.MAX_PRICE);
         String radius = extras.getString(IndicateRatingInterval.RADIUS);
-        String minPrice2 = extras.getString(IndicateRatingInterval.MIN_PRICE_2);
-        String maxPrice2 = extras.getString(IndicateRatingInterval.MAX_PRICE_2);
+        String minRating = extras.getString(IndicateRatingInterval.MIN_PRICE_2);
+        String maxRating = extras.getString(IndicateRatingInterval.MAX_PRICE_2);
 
 
         nProgressBar = (ProgressBar) findViewById(R.id.progressBar);
