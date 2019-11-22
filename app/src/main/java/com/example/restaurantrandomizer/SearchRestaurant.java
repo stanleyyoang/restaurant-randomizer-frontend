@@ -10,6 +10,12 @@ import android.widget.ProgressBar;
 import android.net.Uri;
 
 public class SearchRestaurant extends AppCompatActivity {
+    public static final String CUISINE_SELECTED = "com.example.restaurantrandomizer.MESSAGE";
+    public static final String MIN_PRICE = "com.example.restaurantrandomizer.MINPRICE";
+    public static final String MAX_PRICE = "com.example.restaurantrandomizer.MAXPRICE";
+    public static final String RADIUS = "com.example.restaurantrandomizer.RADIUS";
+    public static final String MIN_PRICE_2 = "com.example.restaurantrandomizer.MINPRICE2";
+    public static final String MAX_PRICE_2 = "com.example.restaurantrandomizer.MAXPRICE2";
 
     private ProgressBar nProgressBar;
     Button map;
@@ -22,6 +28,13 @@ public class SearchRestaurant extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
+        String cuisineSelected = extras.getString(IndicateRatingInterval.CUISINE_SELECTED);
+        String minPrice = extras.getString(IndicateRatingInterval.MIN_PRICE);
+        String maxPrice = extras.getString(IndicateRatingInterval.MAX_PRICE);
+        String radius = extras.getString(IndicateRatingInterval.RADIUS);
+        String minPrice2 = extras.getString(IndicateRatingInterval.MIN_PRICE_2);
+        String maxPrice2 = extras.getString(IndicateRatingInterval.MAX_PRICE_2);
+
 
         nProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         map = (Button) findViewById(R.id.button5);
