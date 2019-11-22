@@ -44,7 +44,7 @@ public class SearchRestaurant extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("geo:37.7749,-122.4194?q=restaurants"));
+                intent.setData(Uri.parse("geo:0,0?q=5712+82nd+St+Unit+114, Lubbock, TX 79424"));
                 SearchRestaurant.this.startActivity(intent);
             }
         });
@@ -53,7 +53,7 @@ public class SearchRestaurant extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:0123456789"));
+                intent.setData(Uri.parse("tel:8067949898"));
                 startActivity(intent);
             }
         });
