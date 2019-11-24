@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     tools:context=".SearchRestaurant">
 
     <ProgressBar
@@ -19,22 +20,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="272dp"
-        android:layout_height="81dp"
-        android:layout_marginTop="412dp"
-        android:text="Map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/button6"
         android:layout_width="272dp"
         android:layout_height="81dp"
-        android:layout_marginTop="512dp"
+        android:layout_marginTop="472dp"
+        android:background="@color/accentYellow"
         android:text="Call"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,8 +36,22 @@
         android:id="@+id/button7"
         android:layout_width="272dp"
         android:layout_height="81dp"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="572dp"
         android:text="Reroll"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="272dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="372dp"
+        android:background="@color/accentYellow"
+        android:text="Map"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,12 +61,13 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:text="China Town"
-        android:textColor="@color/colorPrimary"
-        android:textSize="25sp"
-        android:textStyle="italic"
+        android:textColor="@color/accentYellow"
+        android:textSize="30sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +76,8 @@
         android:layout_width="176dp"
         android:layout_height="44dp"
         android:layout_marginTop="128dp"
-        android:text="(806) 794-9898"
+        android:text="(806) 794 - 9898"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
@@ -82,6 +90,7 @@
         android:layout_height="105dp"
         android:layout_marginTop="192dp"
         android:text="5712 82nd St Unit 114, Lubbock, TX 79424"
+        android:textColor="@android:color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.605"

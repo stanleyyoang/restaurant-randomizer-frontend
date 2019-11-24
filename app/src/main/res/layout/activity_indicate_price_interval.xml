@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundGray"
     tools:context=".IndicatePriceInterval">
 
     <TextView
         android:id="@+id/indicatePrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="120dp"
+        android:textColor="@color/accentYellow"
         android:textSize="25sp"
-        android:textStyle="italic"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -27,20 +29,20 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
-        app:bar_color="#8990C4"
-        app:bar_highlight_color="#2434AD"
+        app:bar_color="@color/lightGray"
+        app:bar_highlight_color="@color/accentYellow"
         app:corner_radius="10"
         app:data_type="_integer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:left_thumb_color="#1A246D"
-        app:left_thumb_color_pressed="#030B47"
+        app:left_thumb_color="@color/accentYellow"
+        app:left_thumb_color_pressed="@color/brightYellow"
         app:max_value="4"
         app:min_value="1"
-        app:right_thumb_color="#1A246D"
-        app:right_thumb_color_pressed="#030B47"
+        app:right_thumb_color="@color/accentYellow"
+        app:right_thumb_color_pressed="@color/brightYellow"
         app:steps="1" />
 
     <TextView
@@ -48,6 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:textColor="@color/accentYellow"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="@+id/rangePriceSeekbar"
         app:layout_constraintTop_toBottomOf="@+id/rangePriceSeekbar" />
 
@@ -56,18 +60,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:textColor="@color/accentYellow"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/rangePriceSeekbar"
         app:layout_constraintTop_toBottomOf="@+id/rangePriceSeekbar" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="152dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:onClick="indicateRadius"
         android:text="@string/next_label"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
