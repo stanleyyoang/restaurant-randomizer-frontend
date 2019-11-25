@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String CUISINE_SELECTED = "com.example.restaurantrandomizer.MESSAGE";
     Button cuisine;
     TextView cuisineSelected;
+    TextView textSelected;
     String[] listCuisines;
     boolean[] checkCuisines;
     ArrayList<Integer> userCuisines = new ArrayList<>();
@@ -38,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         listCuisines = getResources().getStringArray(R.array.cuisines);
         checkCuisines = new boolean[listCuisines.length];
 
+        textSelected = (TextView) findViewById(R.id.textView7);
+        if( userCuisines.isEmpty() ){
+            textSelected.setVisibility(View.INVISIBLE);
+        }
+
         cuisine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,10 +56,12 @@ public class MainActivity extends AppCompatActivity {
                         if(isChecked){
                             if(!userCuisines.contains(position)) {
                                 userCuisines.add(position);
+                                textSelected.setVisibility(View.VISIBLE);
                             }
                         } else {
                             if(userCuisines.contains(position)) {
                                 userCuisines.remove(userCuisines.indexOf(position));
+                                textSelected.setVisibility(View.INVISIBLE);
                             }
                         }
                     }
@@ -89,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < checkCuisines.length; i++){
                             checkCuisines[i] = false;
                             userCuisines.clear();
+                            textSelected.setVisibility(View.INVISIBLE);
                             cuisineSelected.setText("");
                         }
                     }
