@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
         cuisine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.alertDialog);
                 builder.setTitle(getString(R.string.dialog_title));
+
                 builder.setMultiChoiceItems(listCuisines, checkCuisines, new DialogInterface.OnMultiChoiceClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int position, boolean isChecked) {
