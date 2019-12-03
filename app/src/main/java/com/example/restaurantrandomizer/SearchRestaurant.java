@@ -9,6 +9,10 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.net.Uri;
 
+import com.android.volley.toolbox.JsonObjectRequest;
+import org.json.JSONObject;
+import com.android.volley.*;
+
 public class SearchRestaurant extends AppCompatActivity {
     public static final String CUISINE_SELECTED = "com.example.restaurantrandomizer.MESSAGE";
     public static final String MIN_PRICE = "com.example.restaurantrandomizer.MINPRICE";
@@ -16,6 +20,9 @@ public class SearchRestaurant extends AppCompatActivity {
     public static final String RADIUS = "com.example.restaurantrandomizer.RADIUS";
     public static final String MIN_PRICE_2 = "com.example.restaurantrandomizer.MINPRICE2";
     public static final String MAX_PRICE_2 = "com.example.restaurantrandomizer.MAXPRICE2";
+    public static final String url = "localhost:8000/ping";
+
+    public JSONObject restaurant;
 
     private ProgressBar nProgressBar;
     Button map;
@@ -35,6 +42,21 @@ public class SearchRestaurant extends AppCompatActivity {
         String minRating = extras.getString(IndicateRatingInterval.MIN_PRICE_2);
         String maxRating = extras.getString(IndicateRatingInterval.MAX_PRICE_2);
 
+        //request goes here
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        restaurant = response;
+                    }
+                }, new Response.ErrorListener() {
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        restaurant = new JSONObject();
+                    }
+                });
 
         nProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         map = (Button) findViewById(R.id.button5);
