@@ -2,7 +2,10 @@ package com.example.restaurantrandomizer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+<<<<<<< HEAD
 import android.content.Context;
 import android.content.DialogInterface;
 import android.app.AlertDialog;
@@ -11,6 +14,12 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+=======
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.util.Log;
+>>>>>>> fb99b02ffb19c9a333215f683a75416ca2da31e0
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -21,6 +30,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONObject;
 import com.android.volley.*;
 import com.android.volley.toolbox.Volley;
+<<<<<<< HEAD
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
@@ -30,6 +40,8 @@ import com.google.android.gms.location.LocationServices;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+=======
+>>>>>>> fb99b02ffb19c9a333215f683a75416ca2da31e0
 
 public class SearchRestaurant extends AppCompatActivity {
     public static final String CUISINE_SELECTED = "com.example.restaurantrandomizer.MESSAGE";
@@ -38,9 +50,16 @@ public class SearchRestaurant extends AppCompatActivity {
     public static final String RADIUS = "com.example.restaurantrandomizer.RADIUS";
     public static final String MIN_PRICE_2 = "com.example.restaurantrandomizer.MINPRICE2";
     public static final String MAX_PRICE_2 = "com.example.restaurantrandomizer.MAXPRICE2";
+<<<<<<< HEAD
     public static final String url = "localhost:8000/findfood";
+=======
+
+    // url ip address refers to host machine, cannot use localhost
+    public static final String url = "http://10.0.2.2:8000/ping/";
+>>>>>>> fb99b02ffb19c9a333215f683a75416ca2da31e0
 
     public JSONObject restaurant;
+    public JSONObject jsonRequest;
 
     private ProgressBar nProgressBar;
     Button map;
@@ -64,6 +83,7 @@ public class SearchRestaurant extends AppCompatActivity {
         String maxRating = extras.getString(IndicateRatingInterval.MAX_PRICE_2);
         final String[] coords = new String[2]; //idk why you have to do it like this, but you do.
 
+<<<<<<< HEAD
         locationClient = LocationServices.getFusedLocationProviderClient(this);
 
         checkLocationSettings();
@@ -79,6 +99,13 @@ public class SearchRestaurant extends AppCompatActivity {
                         coords[0] = Double.toString(location.getLongitude());
                         coords[1] = Double.toString(location.getLatitude());
                     }
+=======
+        RequestQueue queue = Volley.newRequestQueue(this);
+
+        //request goes here
+        JsonObjectRequest req = new JsonObjectRequest
+                (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+>>>>>>> fb99b02ffb19c9a333215f683a75416ca2da31e0
 
                     public void onLocationAvailability(LocationAvailability lA){
                         return;
@@ -102,15 +129,18 @@ public class SearchRestaurant extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         restaurant = response;
+                        Log.d("Response", response.toString());
                     }
                 }, new Response.ErrorListener() {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        restaurant = new JSONObject();
+                        Log.d("Error.Response", error.toString());
                     }
                 });
         queue.add(jsonObjectRequest); //add request to queue for dispatch
+
+        queue.add(req);
 
         nProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         map = (Button) findViewById(R.id.button5);
