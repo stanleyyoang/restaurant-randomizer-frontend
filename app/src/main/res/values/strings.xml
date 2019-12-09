@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Restaurant Randomizer</string>
+    <string name="select_cuisine_s">Select cuisine(s)</string>
+    <string name="dialog_title">Food Cuisines</string>
+    <string name="next_label">Next</string>
+    <string name="ok_label">OK</string>
+    <string name="dismiss_label">Dismiss</string>
+    <string name="clear_all_label">Clear all</string>
+    <string name="indicate_price_interval">Indicate Price Interval</string>
+    <string name="indicate_max_radius">Indicate Maximum Radius</string>
+    <string name="indicate_rating_interval">Indicate Rating Interval</string>
+
+    <string-array name="cuisines">
+        <item>American</item>
+        <item>Chinese</item>
+        <item>Greek</item>
+        <item>Indian</item>
+        <item>Italian</item>
+        <item>Japanese</item>
+        <item>Korean</item>
+        <item>Mexican</item>
+    </string-array>
+
+    <string-array name="radius">
+        <item>1 mile</item>
+        <item>5 miles</item>
+        <item>10 miles</item>
+        <item>15 miles</item>
+        <item>20 miles</item>
+    </string-array>
+    <string name="find_restaurant_label">Find Restaurant</string>
+
+</resources>
