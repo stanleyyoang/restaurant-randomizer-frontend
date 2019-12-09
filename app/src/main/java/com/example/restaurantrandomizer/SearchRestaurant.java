@@ -40,7 +40,7 @@ public class SearchRestaurant extends AppCompatActivity {
     public static final String MIN_PRICE_2 = "com.example.restaurantrandomizer.MINPRICE2";
     public static final String MAX_PRICE_2 = "com.example.restaurantrandomizer.MAXPRICE2";
     // url ip address refers to host machine, cannot use localhost
-    //public static final String url = "http://10.0.2.2:8000/ping/";
+    //public static final String url = "http://10.0.2.2:8000/findfood";
     //Testing url
     public static final String url = "http://10.0.2.2:8000/findfood/";
 
@@ -97,7 +97,7 @@ public class SearchRestaurant extends AppCompatActivity {
             GET_URL = url + URLEncoder.encode(temp, "UTF-8");
             Log.d("Encoded Url", GET_URL);
         } catch(UnsupportedEncodingException e) {
-            Toast.makeText(this, "URL encoding failed!\n" + temp, Toast.LENGTH_LONG);
+            Toast.makeText(this, "URL encoding failed!\n" + temp, Toast.LENGTH_LONG).show();
         }
         //JSON request
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -124,13 +124,24 @@ public class SearchRestaurant extends AppCompatActivity {
         phone = (Button) findViewById(R.id.button6);
 
         //unpack the restaurant JSON
-
+        String address;
+        String phoneNum;
+        try {
+            //JSONObject object = restaurant.getJSONObject("results");
+            address = restaurant.getString("vicinity");
+            //phoneNum = restaurant.getString("phone");
+        } catch(Exception e) {
+            address = "error";
+            Log.d("Error.Response", e.getLocalizedMessage());
+        }
+        final String finalAddress = address;
         //TODO: Replace hardcoded location with restaurant information
         map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse("geo:0,0?q=5712+82nd+St+Unit+114, Lubbock, TX 79424"));
+                //intent.setData(Uri.parse("geo:0,0?q=5712+82nd+St+Unit+114, Lubbock, TX 79424"));
+                intent.setData(Uri.parse("geo:"+finalAddress));
                 SearchRestaurant.this.startActivity(intent);
             }
         });
@@ -140,6 +151,7 @@ public class SearchRestaurant extends AppCompatActivity {
             public void onClick(View v) {
                 final Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:8067949898"));
+                //intent.setData(Uri.parse("tel:"phoneNum));
                 startActivity(intent);
             }
         });
@@ -147,7 +159,7 @@ public class SearchRestaurant extends AppCompatActivity {
 
     /**
      * This method checks that the user has their location enabled and allows them to jump to the
-     * settings to turn it on, if it is off.
+     * settings to turn location on, if it is off.
      **/
     private void checkLocationSettings() {
         LocationManager lm = (LocationManager) getBaseContext().getSystemService(Context.LOCATION_SERVICE);
@@ -158,7 +170,6 @@ public class SearchRestaurant extends AppCompatActivity {
                         public void onClick(DialogInterface paramDialogInterface, int paramInt) {
                             getBaseContext().startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                         }
-
                     })
                     .setNegativeButton("Cancel", null)
                     .show();
