@@ -42,7 +42,7 @@ public class SearchRestaurant extends AppCompatActivity {
     // url ip address refers to host machine, cannot use localhost
     //public static final String url = "http://10.0.2.2:8000/findfood";
     //Testing url
-    public static final String url = "localhost:8000/findfood";
+    public static final String url = "http://10.0.2.2:8000/findfood/";
 
     public JSONObject restaurant;
 
@@ -89,12 +89,13 @@ public class SearchRestaurant extends AppCompatActivity {
                 }, Looper.myLooper());
 
         //Encoding the url
-        String temp = url + "?cuisine=" + cuisineSelected + "&minPrice=" + minPrice + "&maxPrice=" +
+        String temp = "?cuisine=" + cuisineSelected + "&minPrice=" + minPrice + "&maxPrice=" +
                 maxPrice + "&radius=" + radius + "&lon=" + coords[0] + "&lat=" + coords[1] + "&minRating=" +
                 minRating + "&maxRating=" + maxRating;
         String GET_URL = "";
         try {
-            GET_URL = URLEncoder.encode(temp, "UTF-8");
+            GET_URL = url + URLEncoder.encode(temp, "UTF-8");
+            Log.d("Encoded Url", GET_URL);
         } catch(UnsupportedEncodingException e) {
             Toast.makeText(this, "URL encoding failed!\n" + temp, Toast.LENGTH_LONG).show();
         }
