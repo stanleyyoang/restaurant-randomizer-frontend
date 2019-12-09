@@ -126,12 +126,13 @@ public class SearchRestaurant extends AppCompatActivity {
         String address;
         String phoneNum;
         try {
-            //JSONObject object = restaurant.getJSONObject("results");
-            address = restaurant.getString("vicinity");
-            //phoneNum = restaurant.getString("phone");
+            JSONObject result = restaurant.getJSONObject("result");
+            address = result.getString("formatted_address");
+            phoneNum = restaurant.getString("formatted_phone_number");
         } catch(Exception e) {
             address = "error";
             Log.d("Error.Response", e.getLocalizedMessage());
+            return;
         }
         final String finalAddress = address;
         //TODO: Replace hardcoded location with restaurant information
